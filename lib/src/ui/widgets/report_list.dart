@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:terra_planeta_agua/src/models/report_model.dart';
 import 'package:terra_planeta_agua/src/ui/widgets/custom_progress_bar.dart';
