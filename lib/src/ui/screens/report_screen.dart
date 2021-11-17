@@ -17,6 +17,18 @@ class ReportScreen extends StatelessWidget {
       backgroundColor: ONGBlueColor,
       appBar: CustomAppBar(
         actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                "/about",
+              );
+            },
+            child: Icon(
+              Icons.clean_hands,
+              color: Colors.black,
+            ),
+          ),
           DropdownButton(
             underline: Container(
               height: 0,
@@ -27,7 +39,7 @@ class ReportScreen extends StatelessWidget {
             ),
             elevation: 0,
             icon: Container(
-              margin: EdgeInsets.only(right: 10),
+              margin: EdgeInsets.only(right: 15),
               child: Icon(
                 Icons.filter_list,
                 color: Colors.black,
@@ -57,16 +69,6 @@ class ReportScreen extends StatelessWidget {
               );
             }).toList(),
           )
-          // Container(
-          //   margin: EdgeInsets.only(right: 10),
-          //   child: IconButton(
-          //     icon: Icon(
-          //       Icons.filter_list,
-          //       color: Colors.black,
-          //     ),
-          //     onPressed: () {},
-          //   ),
-          // )
         ],
       ),
       body: Column(
@@ -125,27 +127,6 @@ class ReportScreen extends StatelessWidget {
           ),
         ],
       ),
-      // body: Observer(
-      //   builder: (_) => Container(
-      //     margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      //     // child: widget(child: ReportList()),
-      //     child: ListView.builder(
-      //       itemCount: reportStore.reports.length,
-      //       itemBuilder: (context, index) {
-      //         print('cehga aqui');
-      //         return Container(
-      //           margin: EdgeInsets.symmetric(
-      //             horizontal: 10,
-      //             vertical: 5,
-      //           ),
-      //           child: ReportList(
-      //             reports: reportStore.reports[index],
-      //           ),
-      //         );
-      //       },
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:terra_planeta_agua/src/ui/screens/about_screen.dart';
 import 'package:terra_planeta_agua/src/ui/screens/report_details.dart';
 import 'package:terra_planeta_agua/src/ui/screens/report_screen.dart';
 import 'package:terra_planeta_agua/src/ui/screens/login_screen.dart';
@@ -37,6 +38,7 @@ class App extends StatelessWidget {
         '/login': (context) => LoginScreen(),
         '/report-screen': (context) => ReportScreen(),
         '/report-details': (context) => ReportDetails(),
+        '/about': (context) => AboutScreen(),
       },
     );
   }
