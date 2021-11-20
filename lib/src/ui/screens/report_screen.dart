@@ -9,7 +9,16 @@ import 'package:terra_planeta_agua/src/ui/widgets/report_list.dart';
 class ReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List dropdownListItem = ["2017", "2018", "2019", "2020", "2021", "Todos"];
+    List dropdownListItem = [
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "Todos"
+    ];
 
     final reportStore = ReportStore();
 
@@ -47,7 +56,9 @@ class ReportScreen extends StatelessWidget {
             ),
             iconSize: 25,
             onChanged: (dropdownValue) async {
-              if (dropdownValue == "2017" ||
+              if (dropdownValue == "2015" ||
+                  dropdownValue == "2016" ||
+                  dropdownValue == "2017" ||
                   dropdownValue == "2018" ||
                   dropdownValue == "2019" ||
                   dropdownValue == "2020" ||

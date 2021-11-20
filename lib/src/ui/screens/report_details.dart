@@ -8,8 +8,6 @@ class ReportDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     ReportModel reports = ModalRoute.of(context).settings.arguments;
 
-    // final reports = object['reports'];
-
     return Scaffold(
       appBar: CustomAppBar(
         hasLeading: true,
