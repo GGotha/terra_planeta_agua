@@ -78,6 +78,36 @@ class ReportDetails extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Data de geração do Relatório: ',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      reports.date,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'PH da Água: ',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      reports.waterPH.toStringAsFixed(2),
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ],
             ),
             Column(
@@ -89,7 +119,7 @@ class ReportDetails extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 CustomProgressBar(
-                  value: reports.waterPH,
+                  value: reports.waterPHProgressBar,
                 ),
               ],
             )

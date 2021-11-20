@@ -48,7 +48,7 @@ class ReportList extends StatelessWidget {
                       ),
                     ),
                     CustomProgressBar(
-                      value: reports.waterPH,
+                      value: reports.waterPHProgressBar,
                     ),
                   ],
                 ),

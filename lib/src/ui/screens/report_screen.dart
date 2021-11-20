@@ -9,7 +9,7 @@ import 'package:terra_planeta_agua/src/ui/widgets/report_list.dart';
 class ReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List dropdownListItem = ["Hoje", "14 dias", "1 mês", "Todos"];
+    List dropdownListItem = ["2017", "2018", "2019", "2020", "2021", "Todos"];
 
     final reportStore = ReportStore();
 
@@ -47,15 +47,13 @@ class ReportScreen extends StatelessWidget {
             ),
             iconSize: 25,
             onChanged: (dropdownValue) async {
-              if (dropdownValue == "Hoje") {
-                return await ReportProvider().getTodayReports(reportStore);
-              }
-              if (dropdownValue == "14 dias") {
-                return await ReportProvider().getTwoWeeksReports(reportStore);
-              }
-
-              if (dropdownValue == "1 mês") {
-                return await ReportProvider().getOneMonthReports(reportStore);
+              if (dropdownValue == "2017" ||
+                  dropdownValue == "2018" ||
+                  dropdownValue == "2019" ||
+                  dropdownValue == "2020" ||
+                  dropdownValue == "2021") {
+                return await ReportProvider()
+                    .getReportsByYear(reportStore, dropdownValue);
               }
 
               if (dropdownValue == "Todos") {
@@ -89,26 +87,36 @@ class ReportScreen extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return Observer(
                     builder: (_) => Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                      child: ListView.builder(
-                        itemCount: reportStore.reports.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            margin: EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 5,
-                            ),
-                            child: Column(
-                              children: [
-                                ReportList(
-                                  reports: reportStore.reports[index],
-                                ),
-                              ],
-                            ),
-                          );
-                        },
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 10,
                       ),
+                      child: reportStore.reports.length != 0
+                          ? ListView.builder(
+                              itemCount: reportStore.reports.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  margin: EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 5,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      ReportList(
+                                        reports: reportStore.reports[index],
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            )
+                          : Container(
+                              margin: EdgeInsets.symmetric(
+                                horizontal: 15,
+                                vertical: 5,
+                              ),
+                              child: Text('Não há relatórios nesta data'),
+                            ),
                     ),
                   );
                 } else {
